@@ -2,17 +2,15 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
 
-<form action = '@Url.Action("GenerarReceta", "Home")' method = "POST" enctype = application/x-www-form-urlenconded>
-<input type = "text" name="Nombre"/>
-<input type = "date" name="FechaNacimiento"/>
-<input type = "radio" name="TipoComida" value="Caliente"> Caliente
-<input type = "radio" name="TipoComida" value="Fría"> Fría
-<input type = "number" name="PresupuestoDisp" min = "1"/>
-<input type = "number" name="CantPersonas" min = "1" max = "20"/>
-<input type="button"/>
+<h1>Formulario</h1>
+<form action = '@Url.Action("GenerarReceta", "Home")' method = "post" enctype = "multipart/form-data">
+
+    Nombre: <input type = "text" name="Nombre"/><br/>
+    Fecha de nacimiento: <input type = "date" name="FechaNacimiento"/><br/>
+    Tipo de Comida: <input type = "radio" name="TipoComida" value="Caliente"> Caliente
+                    <input type = "radio" name="TipoComida" value="Fría"> Fría <br/>
+    Presupuesto: <input type = "number" name="PresupuestoDisp" min = "1" /><br/>
+    Cantidad de personas: <input type = "number" name="CantPersonas" min = "1" max = "20" /><br/>
+    <button type = "submit"> Enviar </button>
 </form>

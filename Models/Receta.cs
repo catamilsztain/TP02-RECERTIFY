@@ -5,13 +5,8 @@ public class Receta{
     public double PresupuestoDisp {get;set;}
     public int CantPersonas {get;set;}
 
-    public Receta (string nombre, DateTime fecha, string tipo, double presu, int cant)
+    public Receta ()
     {
-        this.Nombre = nombre;
-        this.FechaNacimiento = fecha;
-        this.TipoComida = tipo;
-        this.PresupuestoDisp = presu;
-        this.CantPersonas = cant;
     }
 
     public int CalcularEdad (){
@@ -30,26 +25,25 @@ public class Receta{
             if(PresupuestoDisp < 3000){
                 platoSugerido = "Fideos Con Manteca";
             }
-            else if(3000 <= PresupuestoDisp <= 7000){
+            else if(PresupuestoDisp >= 3000 && PresupuestoDisp <= 7000){
                 platoSugerido = "Arroz con verduras salteadas";
             }
             else{
                 platoSugerido = "Pollo al horno con guarnición";
             }
-             }
-        else if(TipoComida == "Fría"){
+        }
+        else{
             if(PresupuestoDisp < 3000){
                 platoSugerido = "Ensalada simple";
             }
-            else if(3000 <= PresupuestoDisp <= 7000){
+            else if(PresupuestoDisp >= 3000 && PresupuestoDisp <= 7000){
                 platoSugerido = "Ensalada completa con proteína";
             }
             else{
                 platoSugerido = "Tabla de fiambres y quesos";
             }
         }
-        return platoSugerido;
-       
+       return platoSugerido;
     }
 
     public int calcularTiempo(){
@@ -58,18 +52,18 @@ public class Receta{
             if (CantPersonas == 1 || CantPersonas == 2 || CantPersonas == 3){
                 minutosEst = 20;
             }
-            else if(4 <= CantPersonas <= 7){
+            else if(CantPersonas >= 4 && CantPersonas <= 7){
                 minutosEst = 40;
             }
             else{
                 minutosEst = 80;
             }
              }
-        else if(TipoComida == "Fría"){
+        else{
              if (CantPersonas == 1 || CantPersonas == 2 || CantPersonas == 3){
                 minutosEst = 10;
             }
-            else if(4 <= CantPersonas <= 7){
+            else if(CantPersonas >= 4 && CantPersonas <= 7){
                 minutosEst = 20;
             }
             else{
@@ -80,17 +74,17 @@ public class Receta{
     }
 
     public string determinarDificultad(){
-        string dificultad;
+        string dificultad = null;
 
         if(PresupuestoDisp < 3000){
             if (CantPersonas == 1 || CantPersonas == 2 || CantPersonas == 3){
                 dificultad = "Principiante";
             }
-            else if(4 <= CantPersonas <= 7){
+            else if(CantPersonas >= 4 && CantPersonas <= 7){
                 dificultad = "Intermedio";
             }
         }
-        else if(3000 <= PresupuestoDisp <= 7000){
+        else if(PresupuestoDisp >= 3000 && PresupuestoDisp <= 7000){
              if (CantPersonas == 1 || CantPersonas == 2 || CantPersonas == 3){
                 dificultad = "Intermedio";
             }
@@ -99,7 +93,7 @@ public class Receta{
             }
         }
         else{
-            if(1 <= CantPersonas <= 7){
+            if(CantPersonas >= 1 && CantPersonas <= 7){
                 dificultad = "Intermedio";
             }
             else{
